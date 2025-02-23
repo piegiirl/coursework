@@ -1,4 +1,4 @@
-import { CaseItem } from './model';
+import { CaseItem } from "./model";
 
 /**
  * Класс представления для CS Demo Case Opener.
@@ -9,8 +9,8 @@ export class CaseView {
   private button: HTMLButtonElement;
 
   constructor() {
-    this.reel = document.querySelector('.reel')!;
-    this.button = document.querySelector('#spin-button')!;
+    this.reel = document.querySelector(".reel")!;
+    this.button = document.querySelector("#spin-button")!;
   }
 
   /**
@@ -18,10 +18,10 @@ export class CaseView {
    * @param {CaseItem[]} strip - Полоса предметов для отображения.
    */
   renderReel(strip: CaseItem[]): void {
-    this.reel.innerHTML = '';
+    this.reel.innerHTML = "";
     strip.forEach((item) => {
-      const div = document.createElement('div');
-      div.className = 'reel-item';
+      const div = document.createElement("div");
+      div.className = "reel-item";
       div.textContent = item.name;
       this.reel.appendChild(div);
     });
@@ -39,7 +39,7 @@ export class CaseView {
    * Сбрасывает позицию барабана.
    */
   resetReel(): void {
-    this.reel.style.transform = 'translateX(0)';
+    this.reel.style.transform = "translateX(0)";
   }
 
   /**
@@ -47,7 +47,7 @@ export class CaseView {
    * @param {() => void} handler - Функция обработки клика.
    */
   bindSpinButton(handler: () => void): void {
-    this.button.addEventListener('click', handler);
+    this.button.addEventListener("click", handler);
   }
 
   /**
