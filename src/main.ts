@@ -1,8 +1,21 @@
-import './style.css';
-import { CaseModel } from './model';
-import { CaseView } from './view';
-import { CaseController } from './controller';
+import * as PIXI from 'pixi.js';
+import { WheelOfFortune } from './wheel';
 
-const model = new CaseModel();
-const view = new CaseView();
-const controller = new CaseController(model, view);
+async function main(){
+  const app = new PIXI.Application();
+
+await app.init({
+  width: 800,
+  height: 800,
+  backgroundColor: 0x1099bb,
+  antialias: true,
+  canvas: document.getElementById('pixiCanvas')
+})
+
+const wheel = new WheelOfFortune(app);
+
+// Add click to spin
+app.canvas.addEventListener('click', () => wheel.spin());
+}
+
+main();
